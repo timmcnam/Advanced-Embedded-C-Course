@@ -1,0 +1,145 @@
+*** EVALUATION ***
+PROGRAM "C:\Users\timmy\Desktop\McNamara_Lab04\bin\Project.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: BANKED
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.52 Build 15249, Sep  7 2015
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.c.o                                Model: BANKED,        Lang: ANSI-C,        Compiler Version: ANSI-C/cC++ Compiler for HC12 V-5.0.46 Build 15249, Sep  7 2015
+Start12.c.o                             Model: BANKED,        Lang: ANSI-C,        Compiler Version: ANSI-C/cC++ Compiler for HC12 V-5.0.46 Build 15249, Sep  7 2015
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC000 (_Startup)
+_startupData is allocated at 0xC00F and uses 6 Bytes
+extern struct _tagStartup {
+  unsigned nofZeroOut     0
+  _Copy    *toCopyDownBeg 0xC051
+} _startupData;
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                             15     R     0xC000     0xC00E   ROM_C000
+.startData                        66     R     0xC00F     0xC050   ROM_C000
+.copy                              2     R     0xC051     0xC052   ROM_C000
+.text                            157     R   0xFE8000   0xFE809C   PAGE_FE
+.stack                           256   R/W     0x2000     0x20FF   RAM
+.abs_section_1                     1   N/I        0x1        0x1   .absSeg0
+.abs_section_4                     1   N/I        0x4        0x4   .absSeg1
+.vectSeg2_vect                     2     R     0xFFFE     0xFFFF   .vectSeg2
+
+Summary of section sizes per section type:
+READ_ONLY (R):          F2 (dec:      242)
+READ_WRITE (R/W):      100 (dec:      256)
+NO_INIT (N/I):           2 (dec:        2)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xC000   _Startup
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.c.o --
+- PROCEDURES:
+     main                                    FE8000      14      20       2   .text       
+     Modern                                  FE8014      60      96       2   .text       
+- VARIABLES:
+     PORTB                                        1       1       1       8   .abs_section_1
+     PORTC                                        4       1       1      16   .abs_section_4
+MODULE:                 -- Start12.c.o --
+- PROCEDURES:
+     Init                                    FE8074      29      41       2   .text       
+     _Startup                                  C000       F      15       0   .init       
+- VARIABLES:
+     _startupData                              C00F       6       6       3   .startData  
+- LABELS:
+     __SEG_END_SSTACK                          2100       0       0       1               
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.c.o                                     2    116      0
+  Start12.c.o                                  0     56      0
+  other                                      256     68      2
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".text"
+  main Modern Init 
+SECTION: ".init"
+  _Startup 
+SECTION: ".abs_section_1"
+  PORTB 
+SECTION: ".abs_section_4"
+  PORTC 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     PORTB                                        1       1       1       8   .abs_section_1
+     PORTC                                        4       1       1      16   .abs_section_4
+     _Startup                                  C000       F      15       0   .init       
+     main                                    FE8000      14      20       2   .text       
+     Modern                                  FE8014      60      96       2   .text       
+     Init                                    FE8074      29      41       2   .text       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+------- ROM-ADDRESS: 0xC051 ---- SIZE       2 ---
+Filling bytes inserted
+ 0000
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+_Startup                  USES __SEG_END_SSTACK Init main 
+main                      USES Modern 
+Modern                    USES PORTB PORTC 
+Init                      USES _startupData 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |  | 
+ |  +- Modern              
+ |       
+ +- _Startup            
+    | 
+    +- Init                
+    |    
+    +- main                 (see above)
+       
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 5
+Total size of all blocks to be downloaded: 242
+
