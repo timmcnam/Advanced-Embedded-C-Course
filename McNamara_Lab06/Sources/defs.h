@@ -1,7 +1,7 @@
 /*
   Timothy McNamara
   ECET 49900
-  Lab 056
+  Lab 06
   Last Revised: 02/13/2024
 */
  
@@ -14,6 +14,7 @@
 #define BIT_5 0x20
 #define BIT_6 0x40
 #define BIT_7 0x80
+#define HELLO_KITTY ">.<"
 
 // Here I created macros to clear and set each bit of
 // PORTD. Bit 7-5 to be exact. We also created a macro
